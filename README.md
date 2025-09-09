@@ -4,16 +4,23 @@ A full-stack Expense Tracker application to manage your personal finances. This 
 
 ---
 
+# Frontend Deployed :- https://expensewarden.netlify.app
+
 ## Features
 
 - **Authentication**: Secure signup, login, and logout for users.
+- <img width="1920" height="1009" alt="image" src="https://github.com/user-attachments/assets/ae902610-e2aa-4bcd-b085-e80a0ce4072f" />
 - **Add, View, and Delete Expenses**: 
   - Add new expenses with date, category, amount, and description.
   - View recent expenses in a paginated list.
   - Delete any expense as needed.
+  - <img width="1920" height="1009" alt="image" src="https://github.com/user-attachments/assets/7656ad73-5dd5-4f93-9810-88d983b3272d" />
+
 - **Add, View, and Delete Incomes**:
   - Add income entries with similar details.
   - Paginated income tracking and deletion.
+  - <img width="1920" height="1009" alt="image" src="https://github.com/user-attachments/assets/ec997a3b-d4be-4aeb-b762-bb8432129fa5" />
+
 - **Filtering and Date Range**:
   - Filter expenses by date range.
   - Switch between filtering all expenses or by custom duration.
