@@ -6,6 +6,7 @@ const cors = require("cors");
 const connectDB = require('./config/db');
 const queryRoutes = require('./routes/query.route');
 const authRoutes = require('./routes/auth.route');
+const cookieParser = require("cookie-parser");
 
 
 const app = express();
@@ -17,7 +18,8 @@ app.use(
   })
 );
 
-app.use(express.json()); 
+app.use(express.json());
+app.use(cookieParser()); 
 
 app.use("/api/query", queryRoutes);
 app.use("/api/auth", authRoutes)

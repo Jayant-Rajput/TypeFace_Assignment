@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
@@ -11,6 +11,13 @@ import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
 
 function App() {
+
+  const {checkAuth} = useAuthStore();
+
+  useEffect(()=>{
+    checkAuth()
+  },[])
+
   const {authUser} = useAuthStore();
 
   return (

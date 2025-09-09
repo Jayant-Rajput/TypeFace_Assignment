@@ -20,7 +20,7 @@ const useQueryStore = create((set, get) => ({
 
     addExpense: async (expense) => {
         try {
-            const userId = get().user._id;
+            const userId = useAuthStore.getState().authUser._id;;
             const res = await axiosInstance.post("/query/addExpense", { ...expense, id: userId });
 
             // Refresh everything
@@ -36,7 +36,7 @@ const useQueryStore = create((set, get) => ({
 
     addIncome: async (income) => {
         try {
-            const userId = get().user._id;
+            const userId = useAuthStore.getState().authUser._id;;
             console.log("Hii", income);
             const res = await axiosInstance.post("/query/addIncome", { ...income, id: userId });
 
@@ -53,7 +53,7 @@ const useQueryStore = create((set, get) => ({
 
     deleteExpense: async (expenseId) => {
         try {
-            const userId = get().user._id;
+            const userId = useAuthStore.getState().authUser._id;;
             const res = await axiosInstance.post("/query/deleteExpense", { id: userId, expenseId });
 
             // Refresh everything
@@ -69,7 +69,7 @@ const useQueryStore = create((set, get) => ({
     },
 
     deleteIncome: async (incomeId) => {
-        const userId = get().user._id;
+        const userId = useAuthStore.getState().authUser._id;;
         const res = await axiosInstance.post("/query/deleteIncome", { id: userId, incomeId });
 
         // Refresh everything
@@ -82,7 +82,7 @@ const useQueryStore = create((set, get) => ({
     },
 
     getExpensesByPage: async (page) => {
-        const userId = get().user._id;
+        const userId = useAuthStore.getState().authUser._id;;
         const res = await axiosInstance.post("/query/getExpensesByPage", { id: userId, page });
         set({
             expenses: res.data.expenses,
@@ -92,7 +92,7 @@ const useQueryStore = create((set, get) => ({
     },
 
     getIncomesByPage: async (page = 1) => {
-        const userId = get().user._id;
+        const userId = useAuthStore.getState().authUser._id;;
         const res = await axiosInstance.post("/query/getIncomesByPage", { id: userId, page });
         set({
             incomes: res.data.incomes,
@@ -102,7 +102,7 @@ const useQueryStore = create((set, get) => ({
     },
 
     getExpensesByDateRange: async (startDate, endDate, page) => {
-        const userId = get().user._id;
+        const userId = useAuthStore.getState().authUser._id;;
         const res = await axiosInstance.post("/query/getExpensesByDateRange", { id: userId, startDate, endDate, page });
         set({
             expenses: res.data.expenses,
@@ -112,7 +112,7 @@ const useQueryStore = create((set, get) => ({
     },
 
     getIncomesByDateRange: async (startDate, endDate, page = 1) => {
-        const userId = get().user._id;
+        const userId = useAuthStore.getState().authUser._id;;
         const res = await axiosInstance.post("/query/getIncomesByDateRange", { id: userId, startDate, endDate, page });
         set({
             incomes: res.data.incomes,
@@ -122,32 +122,32 @@ const useQueryStore = create((set, get) => ({
     },
 
     getYearlyExpenseStats: async (year) => {
-        const userId = get().user._id;
+        const userId = useAuthStore.getState().authUser._id;;
         const res = await axiosInstance.post("/query/getYearlyExpenseStats", { id: userId, year });
         set({ expenseStats: res.data });
     },
 
     getYearlyIncomeStats: async (year) => {
-        const userId = get().user._id;
+        const userId = useAuthStore.getState().authUser._id;;
         const res = await axiosInstance.post("/query/getYearlyIncomeStats", { id: userId, year });
         set({ incomeStats: res.data });
     },
 
     getMonthlyCategoryExpenseStats: async (year, month) => {
-        const userId = get().user._id;
+        const userId = useAuthStore.getState().authUser._id;;
         const res = await axiosInstance.post("/query/getMonthlyCategoryExpenseStats", { id: userId, year, month });
         set({ monthlyExpenseCategory: res.data });
     },
 
     getMonthlyCategoryIncomeStats: async (year, month) => {
-        const userId = get().user._id;
+        const userId = useAuthStore.getState().authUser._id;;
         const res = await axiosInstance.post("/query/getMonthlyCategoryIncomeStats", { id: userId, year, month });
         set({ monthlyIncomeCategory: res.data });
     },
 
     imageUpload: async (file) => {
         try {
-            const userId = get().user._id;
+            const userId = useAuthStore.getState().authUser._id;;
             const formData = new FormData();
             formData.append("id", userId);
             formData.append("image", file);
