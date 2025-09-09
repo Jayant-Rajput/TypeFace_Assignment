@@ -417,14 +417,14 @@ const imageUpload = async (req, res) => {
       };
 
       const converter = fromPath(req.file.path, options);
-      // Ask for the base64 output directly
+      
       const convertResult = await converter(1, { responseType: "base64" });
 
       if (!convertResult || !convertResult.base64) {
         throw new Error("PDF to Base64 conversion failed.");
       }
 
-      imageData = convertResult.base64; // Use the base64 data directly!
+      imageData = convertResult.base64;
       
     // For all other image types (PNG, JPEG, etc.)
     } else {
@@ -439,14 +439,14 @@ const imageUpload = async (req, res) => {
     `;
 
     const result = await model.generateContent([
-      { inlineData: { mimeType: "image/png", data: imageData } }, // MimeType is always png now for PDFs
+      { inlineData: { mimeType: "image/png", data: imageData } }, 
       { text: prompt },
     ]);
 
     const textResponse = result.response.text().trim();
     let parsed;
     try {
-      // Your JSON parsing logic here...
+      
       const startIndex = textResponse.indexOf('{');
       const endIndex = textResponse.lastIndexOf('}');
       const jsonString = textResponse.substring(startIndex, endIndex + 1);

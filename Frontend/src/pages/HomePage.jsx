@@ -62,7 +62,7 @@ const HomePage = () => {
     );
 
     return result;
-  } // <-- closed getTotals properly
+  } 
 
   const [chartData, setChartData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -90,7 +90,7 @@ const HomePage = () => {
   useEffect(() => {
     fetchStats();
     fetchMonthlyData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    
   }, []);
 
   const totalsFromStore = getTotals(
